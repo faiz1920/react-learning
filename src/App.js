@@ -1,33 +1,41 @@
-import "./App.css";
-import Expenses from "./components/Expenses/Expenses";
+import componentsImage from "./assets/images/components.png";
+import stateImage from "./assets/images/state.png";
+import eventsImage from "./assets/images/events.png";
+import Concept from "./components/Concept";
+import Header from "./components/Header";
 
-const App = () => {
-  const expenses = [
-    {
-      id: "a1",
-      title: "Car Insurance",
-      amount: 35000,
-      date: new Date(2023, 6, 30),
-    },
-    {
-      id: "a2",
-      title: "Bajaj Pulsar NS 200",
-      amount: 220000,
-      date: new Date(2023, 7, 30),
-    },
-    {
-      id: "a3",
-      title: "3bhk Flat",
-      amount: 8500000,
-      date: new Date(2023, 8, 30),
-    },
-  ];
+const concepts = [
+  {
+    title: "Components",
+    image: componentsImage,
+    description:
+      "Components let you split the UI into independent, reusable pieces, and think about each piece in isolation. Components can receive data via props, and they can render dynamic output using JSX.",
+  },
+  {
+    title: "State",
+    image: stateImage,
+    description:
+      "State is data that may change over time. As it changes, the UI should be updated to reflect the updated data. Each component can maintain its own state and multiple components can share state.",
+  },
+  {
+    title: "Events",
+    image: eventsImage,
+    description:
+      "Event handlers are added via props to (built-in) components. You pass functions as values to such event handlers to control which functions gets executed for which event.",
+  },
+];
+
+function App() {
   return (
     <div>
-      <h1>Expense Tracker</h1>
-      <Expenses items={expenses} />
+      <Header />
+      <ul id="concepts">
+        <Concept concept={concepts[0]} />
+        <Concept concept={concepts[1]} />
+        <Concept concept={concepts[2]} />
+      </ul>
     </div>
   );
-};
+}
 
 export default App;
